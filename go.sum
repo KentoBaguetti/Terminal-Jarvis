@@ -1,0 +1,4 @@
+github.com/github/copilot-sdk/go v0.1.19 h1:kCjamonJdPF0kE/oV16H4PX4xpmf2Vt3rSGG6KUR9KM=
+github.com/github/copilot-sdk/go v0.1.19/go.mod h1:0SYT+64k347IDT0Trn4JHVFlUhPtGSE6ab479tU/+tY=
+github.com/google/jsonschema-go v0.4.2 h1:tmrUohrwoLZZS/P3x7ex0WAVknEkBZM46iALbcqoRA8=
+github.com/google/jsonschema-go v0.4.2/go.mod h1:r5quNTdLOYEz95Ru18zA0ydNbBuYoo9tgaYcxEYhJVE=
