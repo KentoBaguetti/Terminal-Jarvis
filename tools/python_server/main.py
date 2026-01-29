@@ -13,4 +13,14 @@ def health():
 # await is used as a easy quick fix
 @app.get("/api/badminton-schedule")
 async def get_badminton_schedule():
-    return await run_in_threadpool(get_badminton_times)
+    data = await run_in_threadpool(get_badminton_times)
+    if data:
+        return {
+            "status": "200",
+            "data": data
+        }
+    else:
+        return {
+            "status": "500",
+            "data": {}
+        }
