@@ -1,1 +1,10 @@
+# environment variables
 .env
+
+# python venvs
+.venv
+
+# caches
+/tools/python_server/__pycache__
+/tools/__pycache__
+/tools/firecrawl/__pycache__
