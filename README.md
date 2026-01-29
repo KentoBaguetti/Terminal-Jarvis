@@ -6,6 +6,9 @@ Since it'll live in the terminal, there will be less distractions that the user 
 
 Think about it like an AI browser, that isnt a browser, and has access to local systems on your computer.
 
-## Tools/Technologies
+## Tools/Technologies Used:
 - GitHub Copilot-SDK
 - Golang
+
+## Current MCP Tools:
+- UBC Badminton Drop-ins Schedule Finder
