@@ -12,3 +12,9 @@ Think about it like an AI browser, that isnt a browser, and has access to local 
 
 ## Current MCP Tools:
 - UBC Badminton Drop-ins Schedule Finder
+
+### commands
+Run the CLI Tool:
+`go run ./cmd/cli/.`
+Starting the Python server:
+`python3 -m uvicorn tools.python_server.main:app --host 0.0.0.0 --port 8000 --reload`
