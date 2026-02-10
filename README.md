@@ -9,6 +9,10 @@ Think about it like an AI browser, that isnt a browser, and has access to local 
 ## Tools/Technologies Used:
 - GitHub Copilot-SDK
 - Golang
+- Python3
+- FastAPI
+- FireCrawl
+
 
 ## Current MCP Tools:
 - UBC Badminton Drop-ins Schedule Finder
