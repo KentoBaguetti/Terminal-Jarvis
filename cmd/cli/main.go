@@ -1,5 +1,8 @@
 package main
 
+// this is the main file for the CLI interface
+// also contains the Copilot LLM
+
 import (
 	"bufio"
 	"fmt"
@@ -9,15 +12,16 @@ import (
 	"time"
 
 	copilot "github.com/github/copilot-sdk/go"
+	"github.com/kentobaguetti/terminaljarvis/internal/shared"
 )
 
 func main() {
 
 	reader := bufio.NewReader(os.Stdin)
 
-	BadmintonScheduleRetriever := copilot.DefineTool("ubc_badminton_schedule_retriever", "Return the badminton schedule from UBC for the next three days including today", func(params BadmintonParams, inv copilot.ToolInvocation) (BadmintonResult, error) {
+	BadmintonScheduleRetriever := copilot.DefineTool("ubc_badminton_schedule_retriever", "Return the badminton schedule from UBC for the next three days including today", func(params shared.BadmintonParams, inv copilot.ToolInvocation) (shared.BadmintonResult, error) {
 		answer := GetBadmintonSchedule()
-		return BadmintonResult{
+		return shared.BadmintonResult{
 			Result: answer,
 		}, nil
 	})
