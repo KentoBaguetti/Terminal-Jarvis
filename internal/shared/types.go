@@ -24,6 +24,10 @@ type BadmintonResult struct {
 }
 
 type PlaywrightParams struct {
-	Task   string         `json:"task"`
-	Params map[string]any `json:"params"`
+	URL         string `json:"url"`
+	Instruction string `json:"instruction"`
+}
+
+type PlaywrightResult struct {
+	Result ToolResponse `json:"result"`
 }

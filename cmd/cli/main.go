@@ -12,31 +12,34 @@ import (
 	"time"
 
 	copilot "github.com/github/copilot-sdk/go"
-	"github.com/kentobaguetti/terminaljarvis/internal/shared"
 )
 
 func main() {
 
+	// create the CLI input
 	reader := bufio.NewReader(os.Stdin)
 
-	BadmintonScheduleRetriever := copilot.DefineTool("ubc_badminton_schedule_retriever", "Return the badminton schedule from UBC for the next three days including today", func(params shared.BadmintonParams, inv copilot.ToolInvocation) (shared.BadmintonResult, error) {
-		answer := GetBadmintonSchedule()
-		return shared.BadmintonResult{
-			Result: answer,
-		}, nil
-	})
-
+	// start copilot
 	client := copilot.NewClient(nil)
 	if err := client.Start(); err != nil {
 		log.Fatal("Error starting CoPilot client:", err)
 	}
 	defer client.Stop()
 
-	session, err := client.CreateSession(&copilot.SessionConfig{Model: "claude-haiku-4.5", Streaming: true, Tools: []copilot.Tool{BadmintonScheduleRetriever}})
+	// define tools to copilot
+	session, err := client.CreateSession(&copilot.SessionConfig{Model: "claude-haiku-4.5", Streaming: true, Tools: CopilotTools[:], MCPServers: map[string]copilot.MCPServerConfig{
+		"playwright": {
+			"type":    "stdio",
+			"command": "npx",
+			"args":    []string{"-y", "@playwright/mcp@latest"},
+			"tools":   []string{"*"},
+		},
+	}})
 	if err != nil {
 		log.Fatal("Error creating CLI Session:", err)
 	}
 
+	// stream text back from LLM
 	session.On(func(event copilot.SessionEvent) {
 		if event.Type == "assistant.message_delta" {
 			fmt.Print(*event.Data.DeltaContent)
