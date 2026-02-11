@@ -31,7 +31,7 @@ func main() {
 		"playwright": {
 			"type":    "stdio",
 			"command": "npx",
-			"args":    []string{"-y", "@playwright/mcp@latest"},
+			"args":    []string{"-y", "@playwright/mcp@latest", "--headless"},
 			"tools":   []string{"*"},
 		},
 	}})
