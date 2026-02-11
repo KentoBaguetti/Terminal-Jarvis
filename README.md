@@ -12,6 +12,7 @@ Think about it like an AI browser, that isnt a browser, and has access to local 
 - Python3
 - FastAPI
 - FireCrawl
+- Playwright MCP Server
 
 
 ## Current MCP Tools:
